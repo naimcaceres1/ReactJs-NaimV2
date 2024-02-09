@@ -1,18 +1,4 @@
-.imgItem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
-    
-}
-
-.imgItem img{
-    width: 150px;
-    height: 150px;
-}
-
-.itemContainer{
+.itemDetailContainer{
     background-color:blueviolet;
     padding: 1rem;
     border-radius: 10px;
@@ -20,18 +6,18 @@
     align-items: center;
 }
 
-.itemDescription{
+.imgItem{
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: white;
     justify-content: center;
     align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.imgItem img{
+    width: 150px;
+    height: 150px;
 }
 
 
-.itemDescription h3{
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-}
+

@@ -10,6 +10,12 @@
     margin: 0 auto;
 }
 
+.itemList a{
+    list-style: none;
+    text-decoration: none;
+    
+}
+
 .itemList img{
     width: 100px;
     border-radius: 10%;

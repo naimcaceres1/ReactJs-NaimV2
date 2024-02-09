@@ -1,0 +1,21 @@
+.itemCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.itemCount p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemCount div button{
+    border-radius: 15%;
+    background-color:  black;
+    color: white;
+    margin: 10px;
+    padding: 5px;
+    border: 1px black;
+}
