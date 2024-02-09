@@ -5,13 +5,13 @@
     align-items: center;
     margin: 10px;
     padding: 10px;
-    
-
+    gap: 2rem;
+    max-width: 60%;
+    margin: 0 auto;
 }
 
 .itemList img{
-    width: 120px;
-    height: 120px;
+    width: 100px;
     border-radius: 10%;
 }
 

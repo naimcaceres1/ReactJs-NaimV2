@@ -18,9 +18,10 @@ function App() {
 
           <Route path='/categories/:categoryId' element={<ItemListContainer/>}/>
 
-          <Route path='/trademark/:trademarkId' element={<ItemDetailContainer/>}/>
+          <Route path='/trademark/:trademarkId' element={<ItemListContainer/>}/>
 
           <Route path='/detail/:id' element={<ItemDetailContainer/>}/>
+          
           
           <Route path='*' element={<Error/>}/>
 

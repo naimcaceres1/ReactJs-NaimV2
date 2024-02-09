@@ -1,7 +1,8 @@
-// ItemListContainer.jsx
-import React, { useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import "./ItemListContainer.css"
 
 const ItemListContainer = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -28,7 +29,6 @@ const ItemListContainer = () => {
                 }
             } catch (error) {
                 console.error('Error fetching products:', error);
-                // Aquí puedes manejar el error de alguna manera, como mostrar un mensaje al usuario
             }
         };
 
@@ -36,7 +36,7 @@ const ItemListContainer = () => {
     }, [categoryId, trademarkId]);
 
     return (
-        <div>
+        <div className='itemListContainer'>
             {filteredProducts.length > 0 ? (
                 <ItemList products={filteredProducts} />
             ) : (

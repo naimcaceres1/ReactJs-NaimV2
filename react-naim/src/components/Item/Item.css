@@ -1,0 +1,33 @@
+.imgItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.itemContainer{
+    background-color:blueviolet;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemDescription{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+.textoItem{
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
