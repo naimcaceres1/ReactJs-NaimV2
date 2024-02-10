@@ -1,4 +1,6 @@
 .itemDetailContainer{
+    margin-top: 50px;
+    margin-bottom: 50px;
     background-color:blueviolet;
     padding: 1rem;
     border-radius: 10px;
@@ -10,13 +12,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: auto;
+    width: 200;
+    height: 200px;
+
 }
 
 .imgItem img{
-    width: 150px;
-    height: 150px;
+    width: 200;
+    height: 200px;
+    border-radius: 12%;
+}
+
+.itemDescription h3{
+    margin-top: 8px;
+    font-size: 18px;
 }
 
 

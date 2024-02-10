@@ -6,7 +6,7 @@
     margin: 10px;
     padding: 10px;
     gap: 2rem;
-    max-width: 60%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -16,11 +16,3 @@
     
 }
 
-.itemList img{
-    width: 100px;
-    border-radius: 10%;
-}
-
-.itemList h2{
-    font-size: 20px;
-}

@@ -10,8 +10,8 @@ const ItemDetail = ({products}) => {
                 </div>
                 <div className='itemDescription'>
                     <h3>{products.name}</h3>
-                    <h3>{products.price}</h3>
-                    <h3>{products.stock}</h3>
+                    <h3> UYU {products.price}</h3>
+                    <h3>Stck disponible: {products.stock}</h3>
                     <h3>{products.description}</h3>
                 </div>
                 <div className='itemCountContainer'>
