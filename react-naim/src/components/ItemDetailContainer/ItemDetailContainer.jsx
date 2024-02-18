@@ -5,11 +5,6 @@ import "./ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
 
-    const handleAddToCart = (quantity) => {
-        setCartCount(cartCount + quantity);
-        alert('Has agregado ' + quantity + ' productos al carrito');
-    };
-
     const [products, setProducts] = useState([])
 
     const {id} = useParams()
@@ -31,7 +26,7 @@ const ItemDetailContainer = () => {
 
 return (
         <div className='itemDetail'>
-        <ItemDetail products={products} handleAddToCart={handleAddToCart} />
+            <ItemDetail products={products}/>
         </div>
     )
 }

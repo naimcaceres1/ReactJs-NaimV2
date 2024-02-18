@@ -15,15 +15,18 @@ function App() {
         <NavBar cartCount={cartCount} />
 
         <Routes> 
-          <Route path='/' element= {<ItemListContainer setCartCount={setCartCount} />}/>
+          <Route path='/' element= {<ItemListContainer/>}/>
 
-          <Route path='/categories/:categoryId' element={<ItemListContainer setCartCount={setCartCount} />}/>
+          <Route path='/categories/:categoryId' element={<ItemListContainer/>}/>
 
-          <Route path='/trademark/:trademarkId' element={<ItemListContainer setCartCount={setCartCount} />}/>
+          <Route path='/trademark/:trademarkId' element={<ItemListContainer/>}/>
 
-          <Route path='/detail/:id' element={<ItemDetailContainer setCartCount={setCartCount} />}/>
-          
-          
+          <Route path='/detail/:id' element={<ItemDetailContainer/>}/>
+
+{/*       <Route path='/us' element={<Us/>}/>
+
+          <Route path='/contacts' element={<Contacts/>}/> */}
+
           <Route path='*' element={<Error/>}/>
 
         </Routes>
