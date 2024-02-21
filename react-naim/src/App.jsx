@@ -1,37 +1,52 @@
-import {useState, useEffect} from 'react';
+import React from 'react';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Footer from './components/Footer/Footer';
 import Error from './components/Error/Error';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './components/Cart/Cart';
+import Contacts from './components/Contacts/Contacts';
+import Us from './components/Us/Us';
+import CartProvider from './context/CartContext';
+
+
+
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
 
   return (
     <div>
+      
       <BrowserRouter>
-        <NavBar cartCount={cartCount} />
 
-        <Routes> 
-          <Route path='/' element= {<ItemListContainer/>}/>
+        <CartProvider>
 
-          <Route path='/categories/:categoryId' element={<ItemListContainer/>}/>
+        <NavBar/>
 
-          <Route path='/trademark/:trademarkId' element={<ItemListContainer/>}/>
+          <Routes> 
+            <Route path='/' element= {<ItemListContainer/>}/>
 
-          <Route path='/detail/:id' element={<ItemDetailContainer/>}/>
+            <Route path='/categories/:categoryId' element={<ItemListContainer/>}/>
 
-{/*       <Route path='/us' element={<Us/>}/>
+            <Route path='/trademark/:trademarkId' element={<ItemListContainer/>}/>
 
-          <Route path='/contacts' element={<Contacts/>}/> */}
+            <Route path='/detail/:id' element={<ItemDetailContainer/>}/>
 
-          <Route path='*' element={<Error/>}/>
+            <Route path='/contacts' element={<Contacts/>}/>
 
-        </Routes>
+            <Route path='/us' element={<Us/>}/>
 
-        <Footer/>
+            <Route path='/cart' element={<Cart/>}/>
+
+            <Route path='*' element={<Error/>}/>
+
+          </Routes>
+
+          <Footer/>
+
+        </CartProvider>
+
       </BrowserRouter>
         
     </div>

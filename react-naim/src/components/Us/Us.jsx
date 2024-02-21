@@ -1,13 +1,12 @@
 import React from 'react'
 
-const us = () => {
-    return (
+const Us = () => {
+    return (       
         <div>
-            <h1>
-                Nosotros
-            </h1>
+            <h1>Us</h1>
         </div>
     )
 }
 
-export default us
+export default Us
+
