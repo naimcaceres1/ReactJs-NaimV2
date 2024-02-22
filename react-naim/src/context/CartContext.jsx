@@ -11,7 +11,6 @@ const CartProvider = ({children}) =>{
         const addedProduct = cart.find(product => product.products.id == products.id)
         if(!addedProduct){
             cart.push({products,amount})
-            console.log(cart)
         }else{
             addedProduct.amount += amount
         }

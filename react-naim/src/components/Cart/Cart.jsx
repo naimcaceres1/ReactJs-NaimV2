@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const {cart} = useContext(CartContext)
+    const {cart, emptyCart} = useContext(CartContext)
 
 
     return (
@@ -27,6 +27,16 @@ const Cart = () => {
                 }
             </div>
             }
+            <div>
+                {
+                cart.length > 1
+                ?
+                <button onClick={emptyCart}>Vaciar carrito</button>
+                :
+                null
+                }
+
+            </div>
         </div>
     )
 }

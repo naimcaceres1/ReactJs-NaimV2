@@ -1,22 +1,21 @@
 import React, { useState, useContext } from 'react';
 import './ItemDetail.css';
-import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import AddedProduct from '../AddedProduct/AddedProduct';
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ products }) => {
-    const [cart, setCart] = useState(false);
+    const [lastAddedProduct, setLastAddedProduct] = useState(null);
     const { addCart } = useContext(CartContext);
 
     const onAddToCart = (amount) => {
         addCart(products, amount);
-        setCart(true);
+        setLastAddedProduct({ products, amount });
     };
 
     return (
         <div className='itemDetailContainer'>
-            {!cart && (
+            {!lastAddedProduct && (
                 <>
                     <div className='imgItem'>
                         <img src={products.img} alt={products.name} />
@@ -32,7 +31,7 @@ const ItemDetail = ({ products }) => {
                     </div>
                 </>
             )}
-            {cart && <AddedProduct />}
+            {lastAddedProduct && <AddedProduct product={lastAddedProduct} />}
         </div>
     );
 };
