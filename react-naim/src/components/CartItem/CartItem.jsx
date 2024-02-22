@@ -1,13 +1,16 @@
-import React from 'react'
+import { CartContext }  from '../../context/CartContext'
+import { useContext } from 'react'
 
-const CartItem = (products, deleteItem) => {
+const CartItem = (products) => {
+    const {deleteItem} = useContext(CartContext)
     return (
         <div>
-            <h3>{products.product.nombre}</h3>
-            <img src="{products.product.img}" alt="{products.product.name}" />
-            <p>cantidad: {products.amount}</p>
-            <p>valor unitario: ${products.product.price*products.amount}</p>
-            <button onClick={() => deleteItem(products.product.id)}>eliminar producto</button>
+            {console.log(products.product.products.name)}
+            <h3>{products.product.products.name}</h3>
+            <img src={products.product.products.img} alt="{products.product.name}" />
+            <p>cantidad: {products.product.amount}</p>
+            <p>valor unitario: ${products.product.products.price*products.product.amount}</p>
+            <button onClick={() => deleteItem(products.product.products.id)}>eliminar producto</button>
 
         </div>
     )

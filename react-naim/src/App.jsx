@@ -1,4 +1,3 @@
-import React from 'react';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -15,42 +14,26 @@ import CartProvider from './context/CartContext';
 
 function App() {
 
-  return (
-    <div>
-      
-      <BrowserRouter>
-
-        <CartProvider>
-
-        <NavBar/>
-
-          <Routes> 
-            <Route path='/' element= {<ItemListContainer/>}/>
-
-            <Route path='/categories/:categoryId' element={<ItemListContainer/>}/>
-
-            <Route path='/trademark/:trademarkId' element={<ItemListContainer/>}/>
-
-            <Route path='/detail/:id' element={<ItemDetailContainer/>}/>
-
-            <Route path='/contacts' element={<Contacts/>}/>
-
-            <Route path='/us' element={<Us/>}/>
-
-            <Route path='/cart' element={<Cart/>}/>
-
-            <Route path='*' element={<Error/>}/>
-
-          </Routes>
-
-          <Footer/>
-
-        </CartProvider>
-
-      </BrowserRouter>
-        
-    </div>
-  )
+return (
+<div>
+        <BrowserRouter>
+                <CartProvider>
+                <NavBar/>
+                        <Routes>
+                        <Route path='/' element = {<ItemListContainer/>}/>
+                        <Route path='/categories/:categoryId' element = {<ItemListContainer/>}/>
+                        <Route path='/trademark/:trademarkId' element = {<ItemListContainer/>}/>
+                        <Route path='/detail/:id' element = {<ItemDetailContainer/>}/>   
+                        <Route path='/contacts' element = {<Contacts/>}/>   
+                        <Route path='/us' element = {<Us/>}/>  
+                        <Route path='/cart' element = {<Cart/>}/>  
+                        <Route path='*' element = {<Error/>}/>  
+                </Routes>
+                <Footer/>
+                </CartProvider>
+        </BrowserRouter>
+</div>
+)
 }
 
 export default App;

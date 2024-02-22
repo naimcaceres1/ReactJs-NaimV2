@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../CartItem/CartItem'
 
@@ -16,8 +16,8 @@ const Cart = () => {
             :
             <div>
                 <h2>Lista de productos:</h2>
-                {cart.map((products)=>(
-                    <CartItem key={products.id} product={products }/>
+                {cart.map((products,index)=>(
+                    <CartItem key={index} product={products }/>
                 ))
                     
                 }

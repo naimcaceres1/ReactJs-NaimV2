@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import cartIcon from '../../assets/Icons/cart.svg'
 import './CartWidget.css'
 import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const CartWidget = () => {
 
@@ -9,8 +10,10 @@ const CartWidget = () => {
 
     return (
         <div className='cartContainer'>
-            <a href="#"><img src={cartIcon} alt="carritoDeCompras"/></a>
-            <p>{amountCart == 0 ? null : amountCart}</p>
+            <Link to={"/cart"}>
+            <img src={cartIcon} alt="carritoDeCompras"/>
+            <p>{amountCart() == 0 ? null : amountCart()}</p>
+            </Link>
         </div>
     )
 }

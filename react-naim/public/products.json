@@ -2,7 +2,7 @@
     {
         "id" : 1,
         "name" : "ADIDAS FORUM LOW 84",
-        "img" : "/src/assets/images/1-adidas-forum-84-low.png",
+        "img" : "/images/1-adidas-forum-84-low.png",
         "description" : "asd",
         "price" : "7.990",
         "stock" : "10",
@@ -12,7 +12,7 @@
     {
         "id" : 2,
         "name" : "ADIDAS ADI2000",
-        "img" : "/src/assets/images/2-adidas-adi2000.png",
+        "img" : "/images/2-adidas-adi2000.png",
         "description" : "asd",
         "price" : "6.990",
         "stock" : "10",
@@ -22,7 +22,7 @@
     {
         "id" : 3,
         "name" : "NIKE AIR MORE UPTEMO 96",
-        "img" : "/src/assets/images/3-nike-air-more-uptempo-96.png",
+        "img" : "/images/3-nike-air-more-uptempo-96.png",
         "description" : "asd",
         "price" : "11.490",
         "stock" : "10",
@@ -32,7 +32,7 @@
     {
         "id" : 4,
         "name" : "NIKE AIR JORDAN 1 MID",
-        "img" : "/src/assets/images/4-nike-jordan-1-mid-se.png",
+        "img" : "/images/4-nike-jordan-1-mid-se.png",
         "description" : "asd",
         "price" : "8.900",
         "stock" : "10",
@@ -42,7 +42,7 @@
     {
         "id" : 5,
         "name" : "W NIKE AIR JORDAN 1 MID SE",
-        "img" : "/src/assets/images/5-w-nike-air-jordan-1-mid-se.png",
+        "img" : "/images/5-w-nike-air-jordan-1-mid-se.png",
         "description" : "asd",
         "price" : "8.990",
         "stock" : "10",
@@ -52,7 +52,7 @@
     {
         "id" : 6,
         "name" : "PUMA CA PRO SPORT LTH",
-        "img" : "/src/assets/images/6-puma-ca-pro-sport-lth.png",
+        "img" : "/images/6-puma-ca-pro-sport-lth.png",
         "description" : "asd",
         "price" : "5.690",
         "stock" : "10",
@@ -62,7 +62,7 @@
     {
         "id" : 7,
         "name" : "W CONVERSE CHUCK 70 HI VINTAGE",
-        "img" : "/src/assets/images/7-w-converse-chuck-70-at-cx-hi-vintage.png",
+        "img" : "/images/7-w-converse-chuck-70-at-cx-hi-vintage.png",
         "description" : "asd",
         "price" : "7.590",
         "stock" : "10",
@@ -72,7 +72,7 @@
     {
         "id" : 8,
         "name" : "W LACOSTE L-SPIN 123 VINTAGE",
-        "img" : "/src/assets/images/8-w-lacoste-l-spin-123vintage-moder-runner.png",
+        "img" : "/images/8-w-lacoste-l-spin-123vintage-moder-runner.png",
         "description" : "asd",
         "price" : "8290",
         "stock" : "10",
@@ -82,7 +82,7 @@
     {
         "id" : 9,
         "name" : "BUZO NIKE CLUB",
-        "img" : "/src/assets/images/9-buzo-nike-club.png",
+        "img" : "/images/9-buzo-nike-club.png",
         "description" : "asd",
         "price" : "3990",
         "stock" : "10",
@@ -92,7 +92,7 @@
     {
         "id" : 10,
         "name" : "REMERA NIKE SPORTWEAR M90",
-        "img" : "/src/assets/images/10-remera-nike-sportwear-m90.png",
+        "img" : "/images/10-remera-nike-sportwear-m90.png",
         "description" : "asd",
         "price" : "2590",
         "stock" : "10",
@@ -102,7 +102,7 @@
     {
         "id" : 11,
         "name" : "MUSCULOSA NIKE ESSENTIAL RIBBED",
-        "img" : "/src/assets/images/11-musculosa-nike-essential-ribbed.png",
+        "img" : "/images/11-musculosa-nike-essential-ribbed.png",
         "description" : "asd",
         "price" : "2390",
         "stock" : "10",
@@ -112,7 +112,7 @@
     {
         "id" : 12,
         "name" : "BUZO PUMA BLOCK HOODIE",
-        "img" : "/src/assets/images/12-buzo-puma-block-hoodie.png",
+        "img" : "/images/12-buzo-puma-block-hoodie.png",
         "description" : "asd",
         "price" : "3790",
         "stock" : "10",
@@ -122,7 +122,7 @@
     {
         "id" : 13,
         "name" : "BANDOLERA NIKE HERITAGE-CROSSBODY",
-        "img" : "/src/assets/images/13-bandolera-nike-heritage-crossbody.png",
+        "img" : "/images/13-bandolera-nike-heritage-crossbody.png",
         "description" : "asd",
         "price" : "1890",
         "stock" : "10",
@@ -132,7 +132,7 @@
     {
         "id" : 14,
         "name" : "MEDIAS NIKE EVERYDAY PLUS CREW 3PR",
-        "img" : "/src/assets/images/14-medias-nike-everyday-plus-crew-3pr.png",
+        "img" : "/images/14-medias-nike-everyday-plus-crew-3pr.png",
         "description" : "asd",
         "price" : "1290",
         "stock" : "10",
@@ -142,7 +142,7 @@
     {
         "id" : 15,
         "name" : "MOCHILA ADIDAS ARCHIVE",
-        "img" : "/src/assets/images/15-mochila-adidas-archive.png",
+        "img" : "/images/15-mochila-adidas-archive.png",
         "description" : "asd",
         "price" : "1690",
         "stock" : "10",
@@ -152,7 +152,7 @@
     {
         "id" : 16,
         "name" : "GORRO NIKE JORDAN JUMPMAN-GYM",
-        "img" : "/src/assets/images/16-gorro-nike-jordan-jumpman-gym.png",
+        "img" : "/images/16-gorro-nike-jordan-jumpman-gym.png",
         "description" : "asd",
         "price" : "2190",
         "stock" : "10",

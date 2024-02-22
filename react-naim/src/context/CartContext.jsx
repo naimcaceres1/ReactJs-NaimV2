@@ -1,5 +1,5 @@
-import React, {createContext, useState} from "react";
-
+import {createContext, useState} from "react";
+import PropTypes from "prop-types"
 export const CartContext = createContext()
 
 
@@ -9,18 +9,16 @@ const CartProvider = ({children}) =>{
     
     const addCart = (products, amount) => {
         const addedProduct = cart.find(product => product.products.id == products.id)
-
         if(!addedProduct){
-            setCart([...cart,{products, amount}])
+            cart.push({products,amount})
+            console.log(cart)
         }else{
-            const newProduct = [...cart]
-            newProduct[addedProduct].amount += amount;
-            setCart(newProduct)
+            addedProduct.amount += amount
         }
     }
 
-    const deleteItem = (productsId) => {
-        const newProduct = cart.filter(item => item.products.id !== productsId)
+    const deleteItem = (id) => {
+        const newProduct = cart.filter(item => item.products.id !== id)
         setCart(newProduct)
     }
 
@@ -55,5 +53,9 @@ const CartProvider = ({children}) =>{
         </CartContext.Provider>
     )
 }
+
+CartProvider.propTypes = {
+    children: PropTypes.any.isRequired
+} 
 
 export default CartProvider
