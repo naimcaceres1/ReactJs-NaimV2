@@ -4,7 +4,7 @@
         "name" : "ADIDAS FORUM LOW 84",
         "img" : "/images/1-adidas-forum-84-low.png",
         "description" : "asd",
-        "price" : "7.990",
+        "price" : "7990",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "adidas"   
@@ -14,7 +14,7 @@
         "name" : "ADIDAS ADI2000",
         "img" : "/images/2-adidas-adi2000.png",
         "description" : "asd",
-        "price" : "6.990",
+        "price" : "6990",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "adidas"
@@ -24,7 +24,7 @@
         "name" : "NIKE AIR MORE UPTEMO 96",
         "img" : "/images/3-nike-air-more-uptempo-96.png",
         "description" : "asd",
-        "price" : "11.490",
+        "price" : "11490",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "nike"
@@ -34,7 +34,7 @@
         "name" : "NIKE AIR JORDAN 1 MID",
         "img" : "/images/4-nike-jordan-1-mid-se.png",
         "description" : "asd",
-        "price" : "8.900",
+        "price" : "8900",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "nike"
@@ -44,7 +44,7 @@
         "name" : "W NIKE AIR JORDAN 1 MID SE",
         "img" : "/images/5-w-nike-air-jordan-1-mid-se.png",
         "description" : "asd",
-        "price" : "8.990",
+        "price" : "8990",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "nike"
@@ -54,7 +54,7 @@
         "name" : "PUMA CA PRO SPORT LTH",
         "img" : "/images/6-puma-ca-pro-sport-lth.png",
         "description" : "asd",
-        "price" : "5.690",
+        "price" : "5690",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "puma"
@@ -64,7 +64,7 @@
         "name" : "W CONVERSE CHUCK 70 HI VINTAGE",
         "img" : "/images/7-w-converse-chuck-70-at-cx-hi-vintage.png",
         "description" : "asd",
-        "price" : "7.590",
+        "price" : "7590",
         "stock" : "10",
         "categories" : "footwear",
         "trademark" : "converse"

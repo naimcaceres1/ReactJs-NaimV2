@@ -17,8 +17,8 @@ const CartProvider = ({children}) =>{
         }
     }
 
-    const deleteItem = (id) => {
-        const newProduct = cart.filter(item => item.products.id !== id)
+    const deleteProduct = (id) => {
+        const newProduct = cart.filter(product => product.products.id !== id)
         setCart(newProduct)
     }
 
@@ -29,12 +29,12 @@ const CartProvider = ({children}) =>{
 
 
     const amountCart = () => {
-        const totalQuantity = cart.reduce((total,item)=> total+item.amount,0)
+        const totalQuantity = cart.reduce((total,product)=> total+product.amount,0)
         return totalQuantity
     }
 
     const totalCart = () => {
-        const totalPrice = cart.reduce((total,item) => total + (item.products.price * item.amount),0)
+        const totalPrice = cart.reduce((total,product) => total + (product.products.price * product.amount),0)
         return totalPrice
 
     }
@@ -44,7 +44,7 @@ const CartProvider = ({children}) =>{
         <CartContext.Provider value={{
             cart,
             addCart,
-            deleteItem,
+            deleteProduct,
             emptyCart,
             amountCart,
             totalCart,
