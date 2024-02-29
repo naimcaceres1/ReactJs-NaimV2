@@ -39,11 +39,11 @@ const ItemCount = ({initial, stock, onAdd}) => {
     )
 }
 
-ItemCount.propTypes = {
+/* ItemCount.propTypes = {
     initial: PropTypes.number.isRequired,
     stock: PropTypes.number.isRequired,
     onAdd: PropTypes.func.isRequired
-}
+} */
 
 export default ItemCount
 

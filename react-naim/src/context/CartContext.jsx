@@ -8,11 +8,13 @@ const CartProvider = ({children}) =>{
     const[cart,setCart] = useState([])
     
     const addCart = (products, amount) => {
-        const addedProduct = cart.find(product => product.products.id == products.id)
-        if(!addedProduct){
-            cart.push({products,amount})
+        const addedProduct = cart.findIndex(product => product.products.id === products.id);
+        if (addedProduct < 0) {
+            setCart([...cart, {products, amount}]);
         }else{
-            addedProduct.amount += amount
+            const updatedCart = [...cart];
+            updatedCart[addedProduct].amount += amount;
+            setCart(updatedCart);
         }
     }
 
@@ -33,10 +35,13 @@ const CartProvider = ({children}) =>{
     }
 
     const totalCart = () => {
-        const totalPrice = cart.reduce((total,product) => total + (product.products.price * product.amount),0)
-        return totalPrice
-
-    }
+        let totalPrice = 0;
+        cart.forEach((product) => {
+            totalPrice += product.products.price * product.amount;
+        });
+        return totalPrice;
+    };
+    
 
 
     return(

@@ -8,6 +8,8 @@ import Cart from './components/Cart/Cart';
 import Contacts from './components/Contacts/Contacts';
 import Us from './components/Us/Us';
 import CartProvider from './context/CartContext';
+import './App.scss'
+import Checkout from './components/Checkout/Checkout';
 
 
 
@@ -15,7 +17,7 @@ import CartProvider from './context/CartContext';
 function App() {
 
 return (
-<div>
+<div className='appContainer'>
         <BrowserRouter>
                 <CartProvider>
                 <NavBar/>
@@ -26,7 +28,8 @@ return (
                         <Route path='/detail/:id' element = {<ItemDetailContainer/>}/>   
                         <Route path='/contacts' element = {<Contacts/>}/>   
                         <Route path='/us' element = {<Us/>}/>  
-                        <Route path='/cart' element = {<Cart/>}/>  
+                        <Route path='/cart' element = {<Cart/>}/>
+                        <Route path='/checkout' element={<Checkout/>}/>  
                         <Route path='*' element = {<Error/>}/>  
                 </Routes>
                 <Footer/>

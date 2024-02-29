@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import "./ItemDetailContainer.css"
+import {getFirestore, doc, getDoc} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
@@ -9,19 +10,23 @@ const ItemDetailContainer = () => {
 
     const {id} = useParams()
 
-    useEffect(()=>{
-        const fetchData = async () =>{
-            try{
-                const response = await fetch('/products.json')
-                const data = await response.json()
-                const product = data.find((p)=>p.id==id)
-                setProducts(product)
-            }catch(error){
-                alert("Error al cargar los productos, estamos trabajando para solucionarlo "+error);
-            }
-        }
-        fetchData()
-    },[id])
+
+    useEffect(() => {
+        const db = getFirestore()
+
+        const newDoc = doc(db, "products", id)
+
+        getDoc(newDoc)
+        .then(response => {
+            const data = response.data()
+            const detailProduct = {id: response.id, ...data}
+            setProducts(detailProduct)
+        })
+        .catch(error => {
+            console.error('Error loading detail products:', error);
+        })
+    
+    },[])
 
 
 return (

@@ -1,46 +1,43 @@
-
 import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import "./ItemListContainer.css"
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+
 
 const ItemListContainer = () => {
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     const { categoryId, trademarkId } = useParams();
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch('/products.json');
-                const data = await response.json();
-                
-                let filteredByCategory = [];
-                if (categoryId) {
-                    filteredByCategory = data.filter(product => product.categories.toLowerCase() === categoryId.toLowerCase());
-                } else {
-                    filteredByCategory = data;
-                }
+        const db = getFirestore();
 
-                if (trademarkId) {
-                    const filteredByTrademark = filteredByCategory.filter(product => product.trademark.toLowerCase() === trademarkId.toLowerCase());
-                    setFilteredProducts(filteredByTrademark);
-                } else {
-                    setFilteredProducts(filteredByCategory);
-                }
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        };
+        let myProductsRef = collection(db, "products");
 
-        fetchProducts();
+        if (categoryId) {
+            myProductsRef = query(myProductsRef, where("categories", "==", categoryId));
+        }
+
+        if (trademarkId) {
+            myProductsRef = query(myProductsRef, where("trademark", "==", trademarkId));
+        }
+
+        getDocs(myProductsRef)
+            .then((response) => {
+                const productsFiltered = response.docs.map(doc => ({id: doc.id, ...doc.data()}));
+                setProducts(productsFiltered);
+            })
+            .catch((error) => {
+                console.error('Error loading products:', error);
+            });
     }, [categoryId, trademarkId]);
 
     return (
         <div className='itemListContainer'>
-            {filteredProducts.length > 0 ? (
-                <ItemList products={filteredProducts} />
+            {products.length > 0 ? (
+                <ItemList products={products} />
             ) : (
-                <h1>Loading...</h1>
+                <h1>Loading products...</h1>
             )}
         </div>
     );
