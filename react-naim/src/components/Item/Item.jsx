@@ -10,7 +10,7 @@ const Item = ({product}) => {
                 </div>
                 <div className='itemDescription'>
                     <h2 className='textoItem'>{product.name}</h2>
-                    <h2 className='textoItem'>{product.price}</h2>
+                    <h2 className='textoItem'>UYU {product.price}</h2>
                     <h2 className='textoItem'>{product.description}</h2>
                 </div>
             </div>
