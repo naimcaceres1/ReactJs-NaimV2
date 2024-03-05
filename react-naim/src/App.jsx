@@ -8,7 +8,7 @@ import Cart from './components/Cart/Cart';
 import Contacts from './components/Contacts/Contacts';
 import Us from './components/Us/Us';
 import CartProvider from './context/CartContext';
-import './App.scss'
+import './App.css'
 import Checkout from './components/Checkout/Checkout';
 
 

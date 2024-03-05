@@ -17,14 +17,13 @@ const ItemDetail = ({ products }) => {
         <div className='itemDetailContainer'>
             {!lastAddedProduct && (
                 <>
-                    <div className='imgItem'>
+                    <div className='imgItemDetail'>
                         <img src={products.img} alt={products.name} />
                     </div>
-                    <div className='itemDescription'>
+                    <div className='itemDescriptionDetail'>
                         <h3>{products.name}</h3>
                         <h3> UYU {products.price}</h3>
-                        <h3>Stock disponible: {products.stock}</h3>
-                        <h3>{products.description}</h3>
+                        <h3>Stock disponible: {products.stock} unidades</h3>
                     </div>
                     <div className='itemCountContainer'>
                         <ItemCount initial={1} stock={products.stock} className='itemCount' onAdd={onAddToCart} />

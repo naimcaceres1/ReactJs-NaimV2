@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import "./ItemCount.css"
-import PropTypes from "prop-types"
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
@@ -27,23 +26,16 @@ const ItemCount = ({initial, stock, onAdd}) => {
 
     return (
         <div className='itemCount'>
-            <h3>{counter}</h3>
-            <div>
-                <button onClick={decrement}>Decrementar</button>
-                <button onClick={addCart}>Agregar al carrito</button>
-                <button onClick={increment}>Incrementar</button>
+            <h3>Cantidad: {counter}</h3>
+            <div className='itemCountButtons'>
+                <button className='decrementButton' onClick={decrement}>-</button>
+                <button className='addCart' onClick={addCart}>Agregar al carrito</button>
+                <button className='incrementButton' onClick={increment}>+</button>
             </div>
-
-
         </div>
     )
 }
 
-/* ItemCount.propTypes = {
-    initial: PropTypes.number.isRequired,
-    stock: PropTypes.number.isRequired,
-    onAdd: PropTypes.func.isRequired
-} */
 
 export default ItemCount
 

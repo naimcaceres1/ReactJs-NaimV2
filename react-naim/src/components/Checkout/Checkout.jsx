@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { collection, addDoc, updateDoc, doc, getDoc, getFirestore } from 'firebase/firestore';
+import './Checkout.css'
 
 
 const Checkout = () => {
@@ -139,15 +140,14 @@ const Checkout = () => {
 
 
     return (
-        <div>
-            <h1>Ingrese sus datos</h1>
-            <form onSubmit={formFunction}>
-                <div>
+        <div className='checkOut'>
+            <form className='checkoutFormContainer' onSubmit={formFunction}>
+                <div className='checkoutProductsContainer'>
                     {cart.map((cartProducts) => {
                         const totalPrice = cartProducts.products.price * cartProducts.amount;
                         return (
-                            <div key={cartProducts.products.id}>
-                                <p>
+                            <div className='checkoutProducts' key={cartProducts.products.id}>
+                                <p className='checkoutProductsInfo'>
                                     {cartProducts.products.name} x{cartProducts.amount}
                                     <span> UYU {totalPrice}</span>
                                 </p>
@@ -155,14 +155,14 @@ const Checkout = () => {
                             </div>
                         );
                     })}
-                    <p>
+                    <p className='checkoutTotalPrice'>
                         Precio total: UYU {cart.reduce((total, cartProducts) => total + (cartProducts.products.price * cartProducts.amount), 0)}
                     </p>
                 </div>
-                <h2>
+                <h2 className='checkoutTitle'>
                     Ingrese sus datos
                 </h2>
-                <div>
+                <div className='checkoutFormContent'>
                     <label htmlFor="nombre">Nombre</label>
                     <input
                         name='nombre'
@@ -171,7 +171,7 @@ const Checkout = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <div>
+                <div className='checkoutFormContent'>
                     <label htmlFor="apellido">Apellido</label>
                     <input
                         name='apellido'
@@ -180,7 +180,7 @@ const Checkout = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                <div>
+                <div className='checkoutFormContent'>
                     <label htmlFor="telefono">Teléfono</label>
                     <input
                         name='telefono'
@@ -190,7 +190,7 @@ const Checkout = () => {
                         maxLength={20}
                     />
                 </div>
-                <div>
+                <div className='checkoutFormContent'>
                     <label htmlFor="email">Email</label>
                     <input
                         name='email'
@@ -200,9 +200,9 @@ const Checkout = () => {
                         onBlur={handleBlur}
                         maxLength={35}
                     />
-                    {!isValidEmail && emailValidated && <p>Por favor, introduce un correo electrónico válido.</p>}
+                    {!isValidEmail && emailValidated && <p className='emailError'>Por favor, introduce un correo electrónico válido.</p>}
                 </div>
-                <div>
+                <div className='checkoutFormContent'>
                     <label htmlFor="confirmarEmail">Confirmación de email</label>
                     <input
                         name='confirmarEmail'
@@ -212,7 +212,7 @@ const Checkout = () => {
                         maxLength={35}
                     />
                 </div>
-                <div>
+                <div className='checkoutFormContent'>
                     <label htmlFor="direccion">Dirección</label>
                     <input
                         name='direccion'
@@ -222,12 +222,14 @@ const Checkout = () => {
                         maxLength={30}
                     />
                 </div>
-                <button type="submit">Completar compra</button>
+                <div className='checkoutSubmitDiv'>
+                    <button className='checkoutSubmit' type="submit">Completar compra</button>
+                </div>
             </form>
-            {error && <p>{error}</p>}
+            {error && <p className='checkoutError'>{error}</p>}
 
             {orderId && (
-                <div>
+                <div className='order'>
                     <p>¡Gracias por tu compra! Tu número de orden es: {orderId}</p>
                     <p>Te enviaremos un correo electrónico al email ingresado anteriormente con todos los datos</p>
                 </div>

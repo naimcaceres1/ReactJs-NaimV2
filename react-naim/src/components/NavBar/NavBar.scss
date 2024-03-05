@@ -1,6 +1,73 @@
-.navBar{
+.navBar {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: #fbebd8;
+    color: #000000;
+    width: 100%;
+    .navBarContainer{
+        width: 100%;
+        padding: 0;
+        .navBarLogo {
+            img {
+                width: 118px;
+                height: 118px;
+            }
+        }
+        .navBarContent {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            font-weight: 500;
+            font-size: 19px;
+            justify-content: space-evenly;
+            a {
+                text-decoration: none;
+                color: black;
+                transition: color 0.3s;
+                padding: 10px;
+                &:hover {
+                    color: #a73636; 
+                }
+                &.active {
+                    color: #f13b3b;
+                }
+            }
+            .navBarDropdown {
+                align-items: center;
+                justify-content: center;
+                .dropdown-menu {
+                    align-items: center;
+                    justify-content: center;
+                    a {
+                        color: black;
+                        text-decoration: none;
+                        transition: color 0.3s;
+                        padding: 10px;
+                        font-size: 17px;
+                        font-weight: 500;
+                        &:hover {
+                            color: #a73636;
+                        }
+                        &.active{
+                            color: #f13b3b;
+                        }
+                    }
+                }
+            }
+        }
+        .cartContainer{
+            a{
+                display: flex;
+                text-decoration: none;
+                color: #000000;
+                img{
+                    padding: 5px;
+                }
+                p{
+                    font-weight: 500;
+                    font-size: 20px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
 }

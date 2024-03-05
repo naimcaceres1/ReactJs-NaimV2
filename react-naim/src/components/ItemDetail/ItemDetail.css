@@ -1,32 +1,39 @@
 .itemDetailContainer{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color:blueviolet;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding: 1rem;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    height: auto;
+    width: auto;
 }
 
-.imgItem{
+.imgItemDetail{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200;
-    height: 200px;
 
 }
 
-.imgItem img{
-    width: 200;
-    height: 200px;
+.imgItemDetail img{
+    width: 300px;
+    height: 300px;
     border-radius: 12%;
 }
 
-.itemDescription h3{
+.itemDescriptionDetail{
+    text-align: center;
+    justify-content: center;
+}
+
+.itemDescriptionDetail h3{
     margin-top: 8px;
     font-size: 18px;
+    padding: 3px;
 }
+
 
 
 

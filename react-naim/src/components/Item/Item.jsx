@@ -9,9 +9,8 @@ const Item = ({product}) => {
                     <img src={product.img} alt={product.name} />
                 </div>
                 <div className='itemDescription'>
-                    <h2 className='textoItem'>{product.name}</h2>
-                    <h2 className='textoItem'>UYU {product.price}</h2>
-                    <h2 className='textoItem'>{product.description}</h2>
+                    <h2 className='itemText'>{product.name}</h2>
+                    <h2 className='itemText'>UYU {product.price}</h2>
                 </div>
             </div>
         </Link>

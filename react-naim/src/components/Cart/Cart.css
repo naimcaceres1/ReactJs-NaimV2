@@ -1,0 +1,90 @@
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cartContainerFull{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cartContainerFull h2{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cartContainerEmpty{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.cartContainerEmpty a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.cartContainerEmpty a:hover{
+    color: #f13b3b;
+}
+
+.cartContainerInfo{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartContainerInfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 3px;
+}
+
+.cartContainerInfoPrice{
+    margin: 20px;
+}
+
+.cartContainerInfoButtons{
+    margin: 20px;
+
+}
+
+.cartContainerInfoButtons button{
+    width: 200px;
+    border:0;
+    background-color: transparent;
+    margin-right: 10px;
+    font-size: 23px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.cartContainerInfoButtons button:hover{
+    color: #f13b3b;
+}
+
+.cartContainerInfoButtons button a{
+    text-decoration: none;
+    color: black;
+}
+
+.cartContainerInfoButtons button a:hover{
+    color: #f13b3b;
+}
+
+
