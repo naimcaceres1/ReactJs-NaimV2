@@ -2,7 +2,6 @@
 .itemContainer{
     padding: 1rem;
     border-radius: 5px;
-    max-width: 100%;
     justify-content: center;
     align-items: center;
     display: flex;

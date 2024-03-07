@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-import { collection, addDoc, updateDoc, doc, getDoc, getFirestore } from 'firebase/firestore';
-import './Checkout.css'
-
+import { collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore';
+import './Checkout.css';
+import { db } from '../../firebase/config';
 
 const Checkout = () => {
     const { cart, totalCart, emptyCart } = useContext(CartContext);
@@ -17,13 +18,14 @@ const Checkout = () => {
     const [emailValidated, setEmailValidated] = useState(false);
     const [orderId, setOrderId] = useState("");
     const [error, setError] = useState("");
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [hasCompletedPurchase, setHasCompletedPurchase] = useState(false);
 
     useEffect(() => {
-        if (cart.length <= 0) {
+        if (cart.length <= 0 && !hasCompletedPurchase) {
             emptyCart();
         }
-    }, [cart, emptyCart]);
-
+    }, [cart, emptyCart, hasCompletedPurchase]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -40,7 +42,6 @@ const Checkout = () => {
         }
     };
     
-
     const handlePhoneChange = (e) => {
         const { value } = e.target;
         const numbers = /^[0-9\b]+$/;
@@ -94,8 +95,6 @@ const Checkout = () => {
 
         setError("");
 
-        const db = getFirestore()
-
         const order = {
             items: cart.map((orderItems) => ({
                 id: orderItems.products.id,
@@ -125,6 +124,8 @@ const Checkout = () => {
             .then((docRef ) => {
                 setOrderId(docRef.id)
                 emptyCart()
+                setIsSubmitted(true);
+                setHasCompletedPurchase(true);
             })
             .catch((error) => {
                 console.log(error);
@@ -137,95 +138,96 @@ const Checkout = () => {
         })
     }
 
-
-
     return (
         <div className='checkOut'>
-            <form className='checkoutFormContainer' onSubmit={formFunction}>
-                <div className='checkoutProductsContainer'>
-                    {cart.map((cartProducts) => {
-                        const totalPrice = cartProducts.products.price * cartProducts.amount;
-                        return (
-                            <div className='checkoutProducts' key={cartProducts.products.id}>
-                                <p className='checkoutProductsInfo'>
-                                    {cartProducts.products.name} x{cartProducts.amount}
-                                    <span> UYU {totalPrice}</span>
-                                </p>
-                                <hr />
-                            </div>
-                        );
-                    })}
-                    <p className='checkoutTotalPrice'>
-                        Precio total: UYU {cart.reduce((total, cartProducts) => total + (cartProducts.products.price * cartProducts.amount), 0)}
-                    </p>
-                </div>
-                <h2 className='checkoutTitle'>
-                    Ingrese sus datos
-                </h2>
-                <div className='checkoutFormContent'>
-                    <label htmlFor="nombre">Nombre</label>
-                    <input
-                        name='nombre'
-                        type="text"
-                        value={inputName}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className='checkoutFormContent'>
-                    <label htmlFor="apellido">Apellido</label>
-                    <input
-                        name='apellido'
-                        type="text"
-                        value={lastName}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className='checkoutFormContent'>
-                    <label htmlFor="telefono">Teléfono</label>
-                    <input
-                        name='telefono'
-                        type="text"
-                        value={numberPhone}
-                        onChange={handlePhoneChange}
-                        maxLength={20}
-                    />
-                </div>
-                <div className='checkoutFormContent'>
-                    <label htmlFor="email">Email</label>
-                    <input
-                        name='email'
-                        type="email"
-                        value={email}
-                        onChange={handleEmailChange}
-                        onBlur={handleBlur}
-                        maxLength={35}
-                    />
-                    {!isValidEmail && emailValidated && <p className='emailError'>Por favor, introduce un correo electrónico válido.</p>}
-                </div>
-                <div className='checkoutFormContent'>
-                    <label htmlFor="confirmarEmail">Confirmación de email</label>
-                    <input
-                        name='confirmarEmail'
-                        type="email"
-                        value={confirmEmail}
-                        onChange={handleConfirmEmailChange}
-                        maxLength={35}
-                    />
-                </div>
-                <div className='checkoutFormContent'>
-                    <label htmlFor="direccion">Dirección</label>
-                    <input
-                        name='direccion'
-                        type="text"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        maxLength={30}
-                    />
-                </div>
-                <div className='checkoutSubmitDiv'>
-                    <button className='checkoutSubmit' type="submit">Completar compra</button>
-                </div>
-            </form>
+            {cart.length > 0 && !isSubmitted && (
+                <form className='checkoutFormContainer' onSubmit={formFunction}>
+                    <div className='checkoutProductsContainer'>
+                        {cart.map((cartProducts) => {
+                            const totalPrice = cartProducts.products.price * cartProducts.amount;
+                            return (
+                                <div className='checkoutProducts' key={cartProducts.products.id}>
+                                    <p className='checkoutProductsInfo'>
+                                        {cartProducts.products.name} x{cartProducts.amount}
+                                        <span> UYU {totalPrice}</span>
+                                    </p>
+                                    <hr />
+                                </div>
+                            );
+                        })}
+                        <p className='checkoutTotalPrice'>
+                            Precio total: UYU {cart.reduce((total, cartProducts) => total + (cartProducts.products.price * cartProducts.amount), 0)}
+                        </p>
+                    </div>
+                    <h2 className='checkoutTitle'>
+                        Ingrese sus datos
+                    </h2>
+                    <div className='checkoutFormContent'>
+                        <label htmlFor="nombre">Nombre</label>
+                        <input
+                            name='nombre'
+                            type="text"
+                            value={inputName}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className='checkoutFormContent'>
+                        <label htmlFor="apellido">Apellido</label>
+                        <input
+                            name='apellido'
+                            type="text"
+                            value={lastName}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className='checkoutFormContent'>
+                        <label htmlFor="telefono">Teléfono</label>
+                        <input
+                            name='telefono'
+                            type="text"
+                            value={numberPhone}
+                            onChange={handlePhoneChange}
+                            maxLength={20}
+                        />
+                    </div>
+                    <div className='checkoutFormContent'>
+                        <label htmlFor="email">Email</label>
+                        <input
+                            name='email'
+                            type="email"
+                            value={email}
+                            onChange={handleEmailChange}
+                            onBlur={handleBlur}
+                            maxLength={35}
+                        />
+                        {!isValidEmail && emailValidated && <p className='emailError'>Por favor, introduce un correo electrónico válido.</p>}
+                    </div>
+                    <div className='checkoutFormContent'>
+                        <label htmlFor="confirmarEmail">Confirmación de email</label>
+                        <input
+                            name='confirmarEmail'
+                            type="email"
+                            value={confirmEmail}
+                            onChange={handleConfirmEmailChange}
+                            maxLength={35}
+                        />
+                    </div>
+                    <div className='checkoutFormContent'>
+                        <label htmlFor="direccion">Dirección</label>
+                        <input
+                            name='direccion'
+                            type="text"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            maxLength={30}
+                        />
+                    </div>
+                    <div className='checkoutSubmitDiv'>
+                        <button className='checkoutSubmit' type="submit">Completar compra</button>
+                    </div>
+                </form>
+            )}
+
             {error && <p className='checkoutError'>{error}</p>}
 
             {orderId && (
@@ -235,6 +237,13 @@ const Checkout = () => {
                 </div>
             )}
 
+            {hasCompletedPurchase && (
+                <div className='order'>
+                    <Link to='/'>
+                        <button className='returnHomeButton'>Volver al inicio</button>
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };
